@@ -1,0 +1,46 @@
+@import 'theme.scss';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Lato', sans-serif;
+  background-color: #000;
+  color:#fff;
+  font-size: 16px;
+  line-height: 1.2;
+}
+img{
+  max-width: 100%;
+}
+a{
+  color: #fff;
+}
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.no-wrap{
+  flex-wrap: nowrap;
+}
+.space-between{
+  justify-content: space-between;
+}
+.justify-center{
+  justify-content: center;
+}
+.column{
+  flex-direction: column;
+}
+.align-center{
+  align-items: center;
+}
+.container{
+  padding: 0 20px;
+  width: 100%;
+}
+.center{
+  text-align: center;
+}

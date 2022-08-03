@@ -1,0 +1,32 @@
+<div class="center content-wrapper">
+    <h1>Wallets containing more than X Price</h1>
+    <form class="flex column align-center">
+        <div class="custom-slider">
+            <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+        </div>
+        <div class="min-max-inputs">
+            <input matInput placeholder="Min" name="minInput" [(ngModel)]="minInput" (change)="changeOptions()">
+            <input matInput placeholder="Max" name="maxInput" [(ngModel)]="maxInput" (change)="changeOptions()">
+        </div>          
+        <button class="primary-btn" (click)="SendRequest(1)">Submit</button>
+    </form>
+
+    <div class="result">Result</div>
+
+    <div class="result-wrapper flex justify-center" infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    [scrollWindow]="true"
+    [infiniteScrollContainer]="'.result-inner'"
+    [fromRoot]="false"
+    (scrolled)="onScroll(minValue)">
+        <div class="result-inner">
+            <div class="row flex space-between" *ngIf="records && records.length > 0">
+                <div class="col head">Wallet Address</div>
+            </div>
+            <div class="row flex space-between" *ngFor="let record of records;">
+                <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> {{record}}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="center content-wrapper">
+    <h1>Wallets containing X Price</h1>
+    <form class="flex column align-center">
+        <input matInput #todo placeholder="Input Values" name="todo">   
+        <button class="primary-btn" (click)="SendRequest(todo.value, 1)">Submit</button>
+    </form>
+
+    <div class="result">Result</div>
+
+    <div class="result-wrapper flex justify-center" infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    [scrollWindow]="true"
+    [infiniteScrollContainer]="'.result-inner'"
+    [fromRoot]="false"
+    (scrolled)="onScroll(todo.value)">
+        <div class="result-inner">
+            <div class="row flex space-between" *ngIf="records && records.length > 0">
+                <div class="col head">Wallet Address</div>
+                <div class="col head">Balance</div>
+            </div>
+            <div class="row flex space-between" *ngFor="let record of records;">
+                <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> {{record.address}}</div>
+                <div class="col flex align-center"><img src="../../assets/images/nft-count.png" alt="Logo" class="count" /> {{record.balance}}</div>
+            </div>
+        </div>
+    </div>
+</div>
