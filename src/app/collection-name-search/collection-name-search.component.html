@@ -1,0 +1,45 @@
+<div class="center content-wrapper">
+    <h1>Wallets containing exact name</h1>
+    <form class="flex-column align-center">
+        <input type="text" #todo
+                 placeholder="Pick one"
+                 aria-label="Number"
+                 matInput
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto"
+                 (keyup)="onKeyUp($event)">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option.contract_name">
+                <span><strong>{{option.contract_name}}</strong></span> |
+                <small>{{option.contract_address}}</small>
+            </mat-option>
+          </mat-autocomplete>  
+         
+    </form>
+
+    <button class="primary-btn" (click)="SendRequest(todo.value, 1)">Submit</button> 
+    <div class="result">Result</div>
+
+    <div class="result-wrapper flex justify-center" infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    [scrollWindow]="true"
+    [infiniteScrollContainer]="'.result-inner'"
+    [fromRoot]="false"
+    (scrolled)="onScroll('')">
+        <div class="result-inner">
+            <div class="row flex space-between" *ngIf="records && records.length > 0">
+                <div class="col head">Collection Name</div>
+                <div class="col head">View Provider Page</div>
+                <div class="col head">Wallet Address</div>
+                <div class="col head">View on Etherscan</div>
+            </div>
+            <div class="row flex space-between" *ngFor="let record of records;">
+                <div class="col flex align-center no-wrap">{{record.collection_name}}</div>
+                <div class="col flex align-center"><a href="{{record.permalink}}" target="_blank" style="cursor: pointer;">View Provider Page</a></div>
+                <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> {{record.owner_address}}</div>
+                <div class="col flex align-center"><a target="_blank" href="https://etherscan.io/nft/{{record.contract_address}}/{{record.token_id}}"  style="cursor: pointer;">View on Etherscan</a></div>
+            </div>
+        </div>
+    </div>
+</div>

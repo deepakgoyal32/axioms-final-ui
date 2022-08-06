@@ -24,6 +24,9 @@ import { RangeContentComponent } from './range-content/range-content.component';
 import {MatSliderModule} from '@angular/material/slider';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ByNftCountContentComponent } from './by-nft-count-content/by-nft-count-content.component';
+import { TokenNameSearchComponent } from './token-name-search/token-name-search.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { CollectionNameSearchComponent } from './collection-name-search/collection-name-search.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { ByNftCountContentComponent } from './by-nft-count-content/by-nft-count-
     SidebarComponent,
     ContentComponent,
     RangeContentComponent,
-    ByNftCountContentComponent
+    ByNftCountContentComponent,
+    TokenNameSearchComponent,
+    CollectionNameSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,8 @@ import { ByNftCountContentComponent } from './by-nft-count-content/by-nft-count-
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSliderModule,
-    NgxSliderModule
+    NgxSliderModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

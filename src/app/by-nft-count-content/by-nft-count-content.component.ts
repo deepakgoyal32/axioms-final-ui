@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ByNftCountContentComponent implements OnInit {
 
-  baseUrl: string = 'http://107.22.58.206:9000';
+  baseUrl: string = 'http://52.22.129.105:9001'; //'http://107.22.58.206:9000';
   selectedSymbol: string = 'gt';
   next: number = 0;
   previous: number = 0;
@@ -45,6 +45,9 @@ export class ByNftCountContentComponent implements OnInit {
     this.next = 0;
     this.previous = 0;
     let nftSymbol = localStorage.getItem('nftSymbol');
+    if(page <= 1)
+      this.records = [];
+    
     this.getWalletAddressesForXNFTCount(value, page, nftSymbol).subscribe(response => {
       response.results.forEach(element => {
         this.records.push(element);

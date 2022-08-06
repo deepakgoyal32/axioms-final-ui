@@ -5,8 +5,8 @@
             <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
         </div>
         <div class="min-max-inputs">
-            <input matInput placeholder="Min" name="minInput" [(ngModel)]="minInput" (change)="changeOptions()">
-            <input matInput placeholder="Max" name="maxInput" [(ngModel)]="maxInput" (change)="changeOptions()">
+            <input matInput placeholder="Min" name="minInput" [(ngModel)]="minValue">
+            <input matInput placeholder="Max" name="maxInput" [(ngModel)]="maxValue">
         </div>          
         <button class="primary-btn" (click)="SendRequest(1)">Submit</button>
     </form>
@@ -19,7 +19,7 @@
     [scrollWindow]="true"
     [infiniteScrollContainer]="'.result-inner'"
     [fromRoot]="false"
-    (scrolled)="onScroll(minValue)">
+    (scrolled)="onScroll()">
         <div class="result-inner">
             <div class="row flex space-between" *ngIf="records && records.length > 0">
                 <div class="col head">Wallet Address</div>

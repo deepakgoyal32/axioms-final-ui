@@ -11,12 +11,10 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class RangeContentComponent implements OnInit {
 
-  baseUrl: string = 'http://107.22.58.206:9000';
+  baseUrl: string = 'http://52.22.129.105:9001'; //'http://107.22.58.206:9000';
   next: number = 0;
   previous: number = 0;
 
-  minInput:number = 0;
-  maxInput:number = 10;
   minValue: number = 2;
   maxValue: number = 8;
   options: Options = {
@@ -30,30 +28,26 @@ export class RangeContentComponent implements OnInit {
 
   ngOnInit(): void {  }
 
-  changeOptions() {
-    const newOptions: Options = Object.assign({}, this.options);
-    newOptions.floor = this.minInput;
-    newOptions.ceil = this.maxInput;
-    this.options = newOptions;
-  }
-
-  onScroll(value){
+  onScroll(){
     this.SendRequest(this.next);
   }
 
   SendRequest(page: number) {
     this.next = 0;
     this.previous = 0;
+    if(page <= 1)
+      this.records = [];
+    
     let symbol = localStorage.getItem('symbol');
-      this.getWalletAddressesForPriceRange(this.minValue, this.maxValue, page).subscribe(response => {
-        this.records = response;
-        if (response.next && response.next.page && response.next.page !== '' && response.next.page !== 0) {
-          this.next = response.next.page;
-        }
-        if (response.previous && response.previous.page && response.previous.page !== '' && response.previous.page !== 0) {
-          this.previous = response.previous.page;
-        }
-      });
+    this.getWalletAddressesForPriceRange(this.minValue, this.maxValue, page).subscribe(response => {
+      this.records = response;
+      if (response.next && response.next.page && response.next.page !== '' && response.next.page !== 0) {
+        this.next = response.next.page;
+      }
+      if (response.previous && response.previous.page && response.previous.page !== '' && response.previous.page !== 0) {
+        this.previous = response.previous.page;
+      }
+    });
   }
 
   public getWalletAddressesForPriceRange(min: number, max: number, page: number): Observable<any> {
