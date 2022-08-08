@@ -1,5 +1,5 @@
 <div class="center content-wrapper">
-    <h1>Wallets containing exact name</h1>
+    <h1>Wallets containing nfts with exact collection name</h1>
     <form class="flex-column align-center">
         <input type="text" #todo
                  placeholder="Pick one"
@@ -8,8 +8,8 @@
                  [formControl]="myControl"
                  [matAutocomplete]="auto"
                  (keyup)="onKeyUp($event)">
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            <mat-option *ngFor="let option of options" [value]="option.contract_name">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+            <mat-option *ngFor="let option of options | async" [value]="option.contract_name">
                 <span><strong>{{option.contract_name}}</strong></span> |
                 <small>{{option.contract_address}}</small>
             </mat-option>

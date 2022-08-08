@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
+import { debounce } from 'lodash'
+import { MatAutocomplete } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-token-name-search',
@@ -11,7 +13,7 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./token-name-search.component.scss']
 })
 export class TokenNameSearchComponent implements OnInit {
-
+  @ViewChild(MatAutocomplete) matAutocomplete: MatAutocomplete;
   baseUrl: string = 'http://52.22.129.105:9001';
   selectedValue: any = '0';
   selectedSymbol: string = 'gt';
@@ -25,12 +27,18 @@ export class TokenNameSearchComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   myControl = new FormControl('');
-  options: string[] = [];
+  options: Observable<any>;
 
   ngOnInit() {
     this.InitialValues('');
   }
 
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    this.matAutocomplete.options.first.select();
+  }
+
+  @Debounce(1000)
   onKeyUp(event: any) {
     const value = event.target.value;
     this.InitialValues(value);
@@ -41,19 +49,7 @@ export class TokenNameSearchComponent implements OnInit {
   }
 
   InitialValues(value: string){
-    this.options = [];
-    this.getInitialSearchValues(value).subscribe(response => {
-      response.results.forEach(element => {
-        this.options.push(element);
-      });
-      if (response.next && response.next.page && response.next.page !== '' && response.next.page !== 0) {
-        this.next = response.next.page;
-      }
-      if (response.previous && response.previous.page && response.previous.page !== '' && response.previous.page !== 0) {
-        this.previous = response.previous.page;
-      }
-      //this.displayProgressSpinnerInBlock = false;
-    });
+    this.options = this.getInitialSearchValues(value).pipe(map(item => item.results));
   }
 
   SendRequest(value: string, page: number) {
@@ -83,5 +79,15 @@ export class TokenNameSearchComponent implements OnInit {
   public getInitialSearchValues(value: string): Observable<any> {
     const url = this.baseUrl + '/general/name/search?text=' + value;
     return this.http.get<any>(url);
+  }
+}
+
+function Debounce(ms) {
+  return function(target: any, key: any, descriptor: any) {
+    const oldFunc = descriptor.value
+    const newFunc = debounce(oldFunc, ms)
+    descriptor.value = function() {
+        return newFunc.apply(this, arguments)
+    }
   }
 }
