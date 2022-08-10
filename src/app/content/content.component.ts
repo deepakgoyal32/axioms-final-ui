@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { MatInputModule } from "@angular/material/input";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { LoaderService } from "../loader.service";
 
 @Component({
   selector: "app-content",
@@ -17,9 +18,7 @@ export class ContentComponent implements OnInit {
 
   records = [];
 
-  displayProgressSpinnerInBlock: boolean = false;
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private loader: LoaderService) {}
 
   ngOnInit(): void {}
 
@@ -30,7 +29,7 @@ export class ContentComponent implements OnInit {
   SendRequest(value: string, page: number) {
     console.log(value);
     console.log(this.selectedValue);
-    //this.displayProgressSpinnerInBlock = true;
+    this.loader.displayProgressSpinnerInBlock = true;
     this.next = 0;
     this.previous = 0;
     if(page <= 1)
@@ -58,7 +57,7 @@ export class ContentComponent implements OnInit {
         ) {
           this.previous = response.previous.page;
         }
-        //this.displayProgressSpinnerInBlock = false;
+        this.loader.displayProgressSpinnerInBlock = false;
       }
     );
   }

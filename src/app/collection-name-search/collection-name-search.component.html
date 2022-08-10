@@ -8,8 +8,8 @@
                  [formControl]="myControl"
                  [matAutocomplete]="auto"
                  (keyup)="onKeyUp($event)">
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
-            <mat-option *ngFor="let option of options | async" [value]="option.contract_name">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="changeSelectedOption($event)">
+            <mat-option *ngFor="let option of options | async" [value]="option">
                 <span><strong>{{option.contract_name}}</strong></span> |
                 <small>{{option.contract_address}}</small>
             </mat-option>
@@ -18,7 +18,7 @@
     </form>
 
     <button class="primary-btn" (click)="SendRequest(todo.value, 1)">Submit</button> 
-    <div class="result">Result</div>
+    <div class="result" *ngIf="records && records.length > 0">Results</div>
 
     <div class="result-wrapper flex justify-center" infiniteScroll
     [infiniteScrollDistance]="2"

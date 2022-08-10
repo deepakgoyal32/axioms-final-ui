@@ -7,6 +7,7 @@ import { debounce } from 'lodash';
 import { pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatAutocomplete } from '@angular/material/autocomplete';
+import { LoaderService } from '../loader.service';
 
 @Component({
   selector: 'app-collection-name-search',
@@ -17,15 +18,13 @@ export class CollectionNameSearchComponent implements OnInit {
   @ViewChild(MatAutocomplete) matAutocomplete: MatAutocomplete;
   baseUrl: string = 'http://52.22.129.105:9001';
   selectedValue: any = '0';
-  selectedSymbol: string = 'gt';
+  selectedOptionValue: string;
   next: number = 0;
   previous: number = 0;
 
   records = [];
-  
-  displayProgressSpinnerInBlock: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private loader: LoaderService) { }
 
   myControl = new FormControl('');
   options: Observable<any>;
@@ -53,15 +52,25 @@ export class CollectionNameSearchComponent implements OnInit {
     this.options = this.getInitialSearchValues(value).pipe(map(item => item.results));
   }
 
+  displayFn(option?: any): string | undefined {
+    return option ? option.contract_name : undefined;
+  }
+
+  changeSelectedOption(event: any) {
+    this.selectedOptionValue = event.option.value.contract_address;
+  }
+
   SendRequest(value: string, page: number) {
     console.log(value);
     console.log(this.selectedValue);
+
+    this.loader.displayProgressSpinnerInBlock = true;
     if(page <= 1) 
       this.records = [];
     
     this.next = 0;
     this.previous = 0;
-    this.getWalletAddressesForExactCollectionSearch(value, page).subscribe(response => {
+    this.getWalletAddressesForExactCollectionSearch(this.selectedOptionValue, page).subscribe(response => {
       response.results.forEach(element => {
         this.records.push(element);
       });
@@ -71,6 +80,7 @@ export class CollectionNameSearchComponent implements OnInit {
       if (response.previous && response.previous.page && response.previous.page !== '' && response.previous.page !== 0) {
         this.previous = response.previous.page;
       }
+      this.loader.displayProgressSpinnerInBlock = false;
     });
   }
 

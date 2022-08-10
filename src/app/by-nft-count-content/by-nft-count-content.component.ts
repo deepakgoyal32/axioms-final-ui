@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { LoaderService } from '../loader.service';
 
 @Component({
   selector: 'app-by-nft-count-content',
@@ -20,10 +21,8 @@ export class ByNftCountContentComponent implements OnInit {
   previous: number = 0;
 
   records = [];
-  
-  displayProgressSpinnerInBlock: boolean = false;
 
-  constructor(private http: HttpClient, public dialog: MatDialog) { }
+  constructor(private http: HttpClient, public dialog: MatDialog, private loader: LoaderService) { }
 
   ngOnInit(): void { }
 
@@ -44,6 +43,7 @@ export class ByNftCountContentComponent implements OnInit {
   SendRequest(value: string, page: number) {
     this.next = 0;
     this.previous = 0;
+    this.loader.displayProgressSpinnerInBlock = true;
     let nftSymbol = localStorage.getItem('nftSymbol');
     if(page <= 1)
       this.records = [];
@@ -58,6 +58,7 @@ export class ByNftCountContentComponent implements OnInit {
       if (response.previous && response.previous.page && response.previous.page !== '' && response.previous.page !== 0) {
         this.previous = response.previous.page;
       }
+      this.loader.displayProgressSpinnerInBlock = false;
     });
   }
 

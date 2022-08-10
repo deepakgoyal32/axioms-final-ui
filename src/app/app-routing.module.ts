@@ -8,7 +8,7 @@ import { TokenNameSearchComponent } from './token-name-search/token-name-search.
 
 const routes: Routes = [
   { path: 'name-search', component: TokenNameSearchComponent },
-  { path: 'balance', component: ContentComponent },
+  { path: '', component: ContentComponent },
   { path: 'nft', component: ByNftCountContentComponent },
   { path: 'range', component: RangeContentComponent },
   { path: 'collection-search', component: CollectionNameSearchComponent }

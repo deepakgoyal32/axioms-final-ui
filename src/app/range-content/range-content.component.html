@@ -11,7 +11,7 @@
         <button class="primary-btn" (click)="SendRequest(1)">Submit</button>
     </form>
 
-    <div class="result">Result</div>
+    <div class="result" *ngIf="records && records.length > 0">Results</div>
 
     <div class="result-wrapper flex justify-center" infiniteScroll
     [infiniteScrollDistance]="2"

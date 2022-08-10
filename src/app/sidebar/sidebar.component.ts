@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoaderService } from '../loader.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  mode = 'indeterminate';
+  value = 50;
+  color = 'primary';
+
+  constructor(public loader: LoaderService) { }
 
   ngOnInit(): void {
   }

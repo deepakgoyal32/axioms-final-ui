@@ -3,9 +3,9 @@
 <h3>Wallet</h3>
 
 <ul>
-    <li><a [routerLink]="['/balance']" routerLinkActive="is-active" (click)="setSymbol('gt');" style="cursor: pointer;">Value (greater than)</a></li>
-    <li><a [routerLink]="['/balance']" routerLinkActive="is-active" (click)="setSymbol('lt');" style="cursor: pointer;">Value (less than)</a></li>
-    <li><a [routerLink]="['/balance']" routerLinkActive="is-active" (click)="setSymbol('eq');" style="cursor: pointer;">Value (exact match)</a></li>
+    <li><a [routerLink]="['/']" routerLinkActive="is-active" (click)="setSymbol('gt');" style="cursor: pointer;">Value (greater than)</a></li>
+    <li><a [routerLink]="['/']" routerLinkActive="is-active" (click)="setSymbol('lt');" style="cursor: pointer;">Value (less than)</a></li>
+    <li><a [routerLink]="['/']" routerLinkActive="is-active" (click)="setSymbol('eq');" style="cursor: pointer;">Value (exact match)</a></li>
     <li><a  [routerLink]="['/range']" routerLinkActive="is-active" (click)="setRange(true);" style="cursor: pointer;">Value (range)</a></li>
 </ul>
 
@@ -18,3 +18,10 @@
     <li><a  [routerLink]="['/nft']" routerLinkActive="is-active" (click)="setNftSymbol('lt');" style="cursor: pointer;"># of NFTs (less than)</a></li>
     <li><a  [routerLink]="['/nft']" routerLinkActive="is-active" (click)="setNftSymbol('eq');" style="cursor: pointer;"># of NFTs (exact match)</a></li>
 </ul>
+
+<mat-progress-spinner *ngIf="this.loader.displayProgressSpinnerInBlock"
+[color]="color"
+[mode]="mode"
+[value]="value">
+</mat-progress-spinner>
+<div id="overlay" *ngIf="this.loader.displayProgressSpinnerInBlock"></div>

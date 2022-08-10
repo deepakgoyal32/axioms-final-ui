@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  totalNfts: Number = 0;
+  totalWallets: Number = 0;
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    const url = 'http://52.22.129.105:9001/general/live';
+    this.http.get<any>(url).subscribe((response: any) => {
+      response.forEach(element => {
+        if(element.type === "nfts")
+          this.totalNfts = Math.round(Number(element.count) / 1000000);
+        else if(element.type === "wallets")
+          this.totalWallets = Math.round(Number(element.count) / 1000000);
+      });
+     });
   }
 
 }

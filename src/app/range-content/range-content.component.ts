@@ -3,6 +3,7 @@ import { Options } from '@angular-slider/ngx-slider';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MatInputModule } from '@angular/material/input';
+import { LoaderService } from '../loader.service';
 
 @Component({
   selector: 'app-range-content',
@@ -19,12 +20,12 @@ export class RangeContentComponent implements OnInit {
   maxValue: number = 8;
   options: Options = {
     floor: 0,
-    ceil: 10,
+    ceil: 250,
   };
 
   records = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private loader: LoaderService) { }
 
   ngOnInit(): void {  }
 
@@ -35,6 +36,7 @@ export class RangeContentComponent implements OnInit {
   SendRequest(page: number) {
     this.next = 0;
     this.previous = 0;
+    this.loader.displayProgressSpinnerInBlock = true;
     if(page <= 1)
       this.records = [];
     
@@ -47,6 +49,7 @@ export class RangeContentComponent implements OnInit {
       if (response.previous && response.previous.page && response.previous.page !== '' && response.previous.page !== 0) {
         this.previous = response.previous.page;
       }
+      this.loader.displayProgressSpinnerInBlock = false;
     });
   }
 
