@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoaderService } from '../loader.service';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-sidebar',

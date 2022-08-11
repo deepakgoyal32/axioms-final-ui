@@ -19,9 +19,3 @@
     <li><a  [routerLink]="['/nft']" routerLinkActive="is-active" (click)="setNftSymbol('eq');" style="cursor: pointer;"># of NFTs (exact match)</a></li>
 </ul>
 
-<mat-progress-spinner *ngIf="this.loader.displayProgressSpinnerInBlock"
-[color]="color"
-[mode]="mode"
-[value]="value">
-</mat-progress-spinner>
-<div id="overlay" *ngIf="this.loader.displayProgressSpinnerInBlock"></div>

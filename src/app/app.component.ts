@@ -1,4 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
+import { LoaderService } from './loader.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,14 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 
 export class AppComponent {
 
-  constructor() { }
+  mode = 'indeterminate';
+  value = 50;
+  color = 'primary';
 
+  constructor(public loader: LoaderService) { }
+
+  ngOnInit(){
+    this.loader.displayProgressSpinnerInBlock = false;
+  }
 }
 

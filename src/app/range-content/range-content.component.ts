@@ -20,7 +20,7 @@ export class RangeContentComponent implements OnInit {
   maxValue: number = 8;
   options: Options = {
     floor: 0,
-    ceil: 250,
+    ceil: 1000,
   };
 
   records = [];
@@ -42,7 +42,7 @@ export class RangeContentComponent implements OnInit {
     
     let symbol = localStorage.getItem('symbol');
     this.getWalletAddressesForPriceRange(this.minValue, this.maxValue, page).subscribe(response => {
-      this.records = response;
+      this.records = response.results;
       if (response.next && response.next.page && response.next.page !== '' && response.next.page !== 0) {
         this.next = response.next.page;
       }
