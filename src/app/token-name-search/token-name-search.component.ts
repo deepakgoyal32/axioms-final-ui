@@ -40,7 +40,7 @@ export class TokenNameSearchComponent implements OnInit {
     }
   }
 
-  @Debounce(1000)
+  @Debounce(500)
   onKeyUp(event: any) {
     this.selectedValue = event.target.value;
     this.InitialValues(this.selectedValue);
@@ -89,7 +89,7 @@ export class TokenNameSearchComponent implements OnInit {
   }
 
   public getInitialSearchValues(value: string): Observable<any> {
-    const url = this.baseUrl + '/general/name/search?text=' + value;
+    const url = this.baseUrl + '/general/token/search?text=' + value;
     return this.http.get<any>(url);
   }
 }
