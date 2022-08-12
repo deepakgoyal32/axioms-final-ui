@@ -16,7 +16,7 @@ import { LoaderService } from '../loader.service';
 export class TokenNameSearchComponent implements OnInit {
   @ViewChild(MatAutocomplete) matAutocomplete: MatAutocomplete;
   baseUrl: string = 'http://52.22.129.105:9001';
-  selectedValue: any = '0';
+  selectedValue: string = '';
   selectedSymbol: string = 'gt';
   selectedOptionValue: string;
   next: number = 0;
@@ -35,13 +35,15 @@ export class TokenNameSearchComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   clickout(event) {
-    this.matAutocomplete.options.first.select();
+    if (this.selectedValue === '') { } else {
+      this.matAutocomplete.options.first.select();
+    }
   }
 
   @Debounce(1000)
   onKeyUp(event: any) {
-    const value = event.target.value;
-    this.InitialValues(value);
+    this.selectedValue = event.target.value;
+    this.InitialValues(this.selectedValue);
   }
 
   onScroll(value){

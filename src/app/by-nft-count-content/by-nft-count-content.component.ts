@@ -15,7 +15,7 @@ import { LoaderService } from '../loader.service';
 })
 export class ByNftCountContentComponent implements OnInit {
 
-  baseUrl: string = 'http://52.22.129.105:9001'; //'http://107.22.58.206:9000';
+  baseUrl: string = 'http://107.22.58.206:9000';
   selectedSymbol: string = 'gt';
   next: number = 0;
   previous: number = 0;

@@ -106,3 +106,37 @@ form{
     background-color: #00af6e;
     margin-bottom: 50px;
 }
+
+::ng-deep .mat-autocomplete-panel .mat-optgroup .mat-option {
+    height: 30px !important;
+}
+::ng-deep .mat-autocomplete-panel .mat-optgroup .mat-optgroup-label {
+    display: none;
+  }
+::ng-deep .mat-autocomplete-panel {
+    background-color: grey;
+}
+
+::ng-deep .mat-autocomplete-panel .mat-optgroup .mat-option .mat-option-text{
+    color: white;
+}
+::ng-deep .mat-autocomplete-panel .mat-optgroup .mat-option .mat-option-text:hover{
+    background:none;
+    background-color: none;
+} 
+::ng-deep .mat-autocomplete-panel .mat-optgroup .mat-option{
+    background: none;
+}
+::ng-deep .mat-autocomplete-panel .mat-optgroup {
+    background: none;
+    display: block;
+    padding: 5px 20px;
+}
+::ng-deep .mat-autocomplete-panel .mat-optgroup .mat-option:not(.mat-option-multiple) {
+    padding: 0;
+}
+::ng-deep .mat-autocomplete-panel .mat-optgroup:hover {
+    background-color:rgba(#000,.5);
+    display: block;
+    padding: 5px 20px;
+}

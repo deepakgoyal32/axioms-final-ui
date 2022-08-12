@@ -2,7 +2,7 @@
     <h1>Wallets containing more than X NFTs</h1>
     <form class="flex column align-center">
         <input matInput #todo placeholder="Input Values" name="todo">   
-        <button class="primary-btn" (click)="SendRequest(todo.value, 1)">Submit</button>
+        <button class="primary-btn" (click)="SendRequest(todo.value, 1)" style="cursor: pointer;">Submit</button>
     </form>
 
     <div class="result" *ngIf="records && records.length > 0">Results</div>
@@ -23,7 +23,7 @@
             <div class="row flex space-between" *ngFor="let record of records;">
                 <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> {{record.address}}</div>
                 <div class="col flex align-center"><img src="../../assets/images/balance.svg" alt="Logo" class="count" /> {{record.count}}</div>
-                <div class="col flex align-center"><button mat-raised-button color="success" (click)="openDialog(record.address)">View NFT</button></div>
+                <div class="col flex align-center"><button mat-raised-button color="success" (click)="openDialog(record.address)" style="cursor: pointer;">View NFT</button></div>
             </div>
         </div>
     </div>

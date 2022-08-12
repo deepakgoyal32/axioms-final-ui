@@ -5,10 +5,10 @@
             <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
         </div>
         <div class="min-max-inputs">
-            <input matInput placeholder="Min" name="minInput" [(ngModel)]="minValue">
-            <input matInput placeholder="Max" name="maxInput" [(ngModel)]="maxValue">
+            <input matInput #min placeholder="Min" name="minInput" ()  />
+            <input matInput #max placeholder="Max" name="maxInput" />
         </div>          
-        <button class="primary-btn" (click)="SendRequest(1)">Submit</button>
+        <button class="primary-btn" (click)="SendRequest(1)" style="cursor: pointer;">Submit</button>
     </form>
 
     <div class="result" *ngIf="records && records.length > 0">Results</div>

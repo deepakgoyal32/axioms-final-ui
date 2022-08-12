@@ -11,13 +11,13 @@
     </ng-container>
     <ng-container matColumnDef="permalink">
         <mat-header-cell *matHeaderCellDef> Provider Page Link </mat-header-cell>
-        <mat-cell *matCellDef="let element"> <a class="nav-link" href="{{element.permalink}}" target="_blank">View on Provider Page</a> </mat-cell>
+        <mat-cell *matCellDef="let element"> <a class="nav-link" href="{{element.permalink}}" target="_blank" style="cursor: pointer;">View on Provider Page</a> </mat-cell>
       </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns11"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns11;"></mat-row>
   </table>
 </div>
 <div class="button-paginator">
-    <button mat-raised-button color="success" [ngStyle]="{ display: previous > 0 ? 'block': 'none' }" (click)="fetchNFTNames(previous)">Previous</button>
-    <button mat-raised-button color="success" [ngStyle]="{ display: next > 0 ? 'block': 'none' }" (click)="fetchNFTNames(next)">Next</button>
+    <button mat-raised-button color="success" [ngStyle]="{ display: previous > 0 ? 'block': 'none' }" (click)="fetchNFTNames(previous)" style="cursor: pointer;">Previous</button>
+    <button mat-raised-button color="success" [ngStyle]="{ display: next > 0 ? 'block': 'none' }" (click)="fetchNFTNames(next)" style="cursor: pointer;">Next</button>
 </div>

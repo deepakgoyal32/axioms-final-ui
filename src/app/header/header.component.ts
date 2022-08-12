@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  totalNfts: Number = 0;
-  totalWallets: Number = 0;
+  totalNfts: string = '0';
+  totalWallets: string = '0';
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -16,9 +16,9 @@ export class HeaderComponent implements OnInit {
     this.http.get<any>(url).subscribe((response: any) => {
       response.forEach(element => {
         if(element.type === "nfts")
-          this.totalNfts = element.count;
+          this.totalNfts = (Math.round(Number(element.count)) / 1000000).toFixed(2);
         else if(element.type === "wallets")
-          this.totalWallets = element.count;
+          this.totalWallets = (Math.round(Number(element.count)) / 1000000).toFixed(2);
       });
      });
   }
