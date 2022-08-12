@@ -22,7 +22,7 @@
     (scrolled)="onScroll()">
         <div class="result-inner">
             <div class="row flex space-between" *ngIf="records && records.length > 0">
-                <div class="col head">Wallet Address</div>
+                <div class="col align-center head">Wallet Address</div>
             </div>
             <div class="row flex space-between" *ngFor="let record of records;">
                 <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> {{record.owner_address}}</div>

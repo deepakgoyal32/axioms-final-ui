@@ -62,7 +62,7 @@ form{
 
 .result-inner{
     width: 100%;
-    max-width: 1000px;
+    max-width: 600px;
     overflow-y: scroll;
     height: 500px;
 }
@@ -89,6 +89,11 @@ form{
     &:first-child{
         padding: 20px 20px 20px 0;
     }
+}
+
+.align-center {
+    text-align: center;
+    justify-content: center;
 }
 
 ::ng-deep {
@@ -137,3 +142,4 @@ form{
       background: darkgreen;
     }
   }
+

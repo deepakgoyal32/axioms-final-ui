@@ -9,10 +9,10 @@
                  [matAutocomplete]="auto"
                  (keyup)="onKeyUp($event)">
           <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="changeSelectedOption($event)">
-            <mat-option *ngFor="let option of options | async" [value]="option">
-                <span><strong>{{option.contract_name}}</strong></span> |
-                <small>{{option.contract_address}}</small>
-            </mat-option>
+            <mat-optgroup *ngFor="let option of options | async">
+                <mat-option [value]="option"><strong>{{option.contract_name}}</strong></mat-option>
+                <mat-option [value]="option">{{option.contract_address}}</mat-option>
+            </mat-optgroup>
           </mat-autocomplete>  
          
     </form>

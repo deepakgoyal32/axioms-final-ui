@@ -8,6 +8,7 @@ import { pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { LoaderService } from '../loader.service';
+import { eventNames } from 'process';
 
 @Component({
   selector: 'app-collection-name-search',
@@ -17,11 +18,10 @@ import { LoaderService } from '../loader.service';
 export class CollectionNameSearchComponent implements OnInit {
   @ViewChild(MatAutocomplete) matAutocomplete: MatAutocomplete;
   baseUrl: string = 'http://52.22.129.105:9001';
-  selectedValue: any = '0';
+  selectedValue: string = '';
   selectedOptionValue: string;
   next: number = 0;
   previous: number = 0;
-
   records = [];
 
   constructor(private http: HttpClient, private loader: LoaderService) { }
@@ -33,15 +33,18 @@ export class CollectionNameSearchComponent implements OnInit {
     this.InitialValues('');
   }
 
-  @Debounce(1000)
+  @Debounce(500)
   onKeyUp(event: any) {
     const value = event.target.value;
+    this.selectedValue = value;
     this.InitialValues(value);
   }
 
   @HostListener('document:click', ['$event'])
   clickout(event) {
-    this.matAutocomplete.options.first.select();
+    if (this.selectedValue === '') { } else {
+      this.matAutocomplete.options.first.select();
+    }
   }
 
   onScroll(value){

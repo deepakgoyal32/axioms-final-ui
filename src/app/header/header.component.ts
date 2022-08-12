@@ -16,9 +16,9 @@ export class HeaderComponent implements OnInit {
     this.http.get<any>(url).subscribe((response: any) => {
       response.forEach(element => {
         if(element.type === "nfts")
-          this.totalNfts = Math.round(Number(element.count) / 1000000);
+          this.totalNfts = element.count;
         else if(element.type === "wallets")
-          this.totalWallets = Math.round(Number(element.count) / 1000000);
+          this.totalWallets = element.count;
       });
      });
   }
