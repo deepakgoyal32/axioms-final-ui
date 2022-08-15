@@ -36,7 +36,7 @@ export class TokenNameSearchComponent implements OnInit {
   @HostListener('document:click', ['$event'])
   clickout(event) {
     if (this.selectedValue === '') { } else {
-      this.matAutocomplete.options.first.select();
+      this.matAutocomplete.options?.first?.select();
     }
   }
 

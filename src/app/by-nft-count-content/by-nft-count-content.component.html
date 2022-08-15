@@ -21,9 +21,9 @@
                 <div class="col head">&nbsp;</div>
             </div>
             <div class="row flex space-between" *ngFor="let record of records;">
-                <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> {{record.address}}</div>
-                <div class="col flex align-center"><img src="../../assets/images/balance.svg" alt="Logo" class="count" /> {{record.count}}</div>
-                <div class="col flex align-center"><button mat-raised-button color="success" (click)="openDialog(record.address)" style="cursor: pointer;">View NFT</button></div>
+                <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> {{record.owner_address}}</div>
+                <div class="col flex align-center"><img src="../../assets/images/balance.svg" alt="Logo" class="count" /> {{record.count_id}}</div>
+                <div class="col flex align-center"><button mat-raised-button color="success" (click)="openDialog(record.owner_address)" style="cursor: pointer;">View NFT</button></div>
             </div>
         </div>
     </div>

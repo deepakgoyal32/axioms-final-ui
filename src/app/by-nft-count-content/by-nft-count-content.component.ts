@@ -31,8 +31,8 @@ export class ByNftCountContentComponent implements OnInit {
       data: {
         address: address
       },
-      height: '800',
-      width: '800'
+      height: '750px',
+      width: '850px'
     });
   }
 
