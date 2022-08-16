@@ -6,11 +6,6 @@ h1{
     margin-bottom: 35px;
 }
 
-.content-wrapper {
-    height:100%;
-    min-height: 800px;
-}
-
 form{
     margin-bottom: 50px;
     .min-max-inputs {
@@ -63,8 +58,8 @@ form{
 .result-inner{
     width: 100%;
     max-width: 600px;
-    overflow-y: scroll;
-    height: 500px;
+    overflow-y: auto;
+    max-height: 500px;
 }
 .row{
     border-bottom: 1px solid rgba(#fff,.75);
