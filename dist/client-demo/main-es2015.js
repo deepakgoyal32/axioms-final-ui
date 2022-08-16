@@ -188,10 +188,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _c0 = function () { return ["/"]; };
-const _c1 = function () { return ["/range"]; };
-const _c2 = function () { return ["/name-search"]; };
-const _c3 = function () { return ["/collection-search"]; };
-const _c4 = function () { return ["/nft"]; };
+const _c1 = function () { return ["/lt"]; };
+const _c2 = function () { return ["/eq"]; };
+const _c3 = function () { return ["/range"]; };
+const _c4 = function () { return ["/name-search"]; };
+const _c5 = function () { return ["/collection-search"]; };
+const _c6 = function () { return ["/nft-gt"]; };
+const _c7 = function () { return ["/nft-lt"]; };
+const _c8 = function () { return ["/nft-eq"]; };
 class SidebarComponent {
     constructor(loader) {
         this.loader = loader;
@@ -215,7 +219,7 @@ class SidebarComponent {
     }
 }
 SidebarComponent.ɵfac = function SidebarComponent_Factory(t) { return new (t || SidebarComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_loader_service__WEBPACK_IMPORTED_MODULE_1__["LoaderService"])); };
-SidebarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SidebarComponent, selectors: [["app-sidebar"]], decls: 35, vars: 18, consts: [["routerLinkActive", "is-active", 2, "cursor", "pointer", 3, "routerLink", "click"], ["routerLinkActive", "is-active", 2, "cursor", "pointer", 3, "routerLink"]], template: function SidebarComponent_Template(rf, ctx) { if (rf & 1) {
+SidebarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SidebarComponent, selectors: [["app-sidebar"]], decls: 35, vars: 18, consts: [["routerLinkActive", "active", 2, "cursor", "pointer", 3, "routerLink", "click"], ["routerLinkActive", "active", 2, "cursor", "pointer", 3, "routerLink"]], template: function SidebarComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h3");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Search BY");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -285,22 +289,22 @@ SidebarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](9, _c0));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](10, _c0));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](10, _c1));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](11, _c0));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](11, _c2));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](12, _c1));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](12, _c3));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](13, _c2));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](13, _c4));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](14, _c3));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](14, _c5));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](15, _c4));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](15, _c6));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](16, _c4));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](16, _c7));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](17, _c4));
-    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkActive"]], styles: ["h3[_ngcontent-%COMP%] {\n  font-size: 16px;\n  line-height: 24px;\n  color: rgba(255, 255, 255, 0.75);\n  margin-bottom: 15px;\n  text-transform: uppercase;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.75);\n}\n\nul[_ngcontent-%COMP%] {\n  list-style: none;\n  margin-bottom: 25px;\n}\n\nul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  font-size: 16px;\n  line-height: 28px;\n  color: rgba(255, 255, 255, 0.75);\n}\n\na[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  cursor: pointer !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0NBQUE7RUFDQSxtQkFBQTtFQUNBLHlCQUFBO0VBQ0Esa0RBQUE7QUFDRjs7QUFDQTtFQUNFLGdCQUFBO0VBQ0EsbUJBQUE7QUFFRjs7QUFERTtFQUNFLGVBQUE7RUFDQSxpQkFBQTtFQUNBLGdDQUFBO0FBR0o7O0FBQUE7RUFDRSwwQkFBQTtBQUdGIiwiZmlsZSI6InNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaDMge1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICBsaW5lLWhlaWdodDogMjRweDtcclxuICBjb2xvcjogcmdiYSgjZmZmLCAwLjc1KTtcclxuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoI2ZmZiwgMC43NSk7XHJcbn1cclxudWwge1xyXG4gIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbiAgbWFyZ2luLWJvdHRvbTogMjVweDtcclxuICBsaSB7XHJcbiAgICBmb250LXNpemU6IDE2cHg7XHJcbiAgICBsaW5lLWhlaWdodDogMjhweDtcclxuICAgIGNvbG9yOiByZ2JhKCNmZmYsIDAuNzUpO1xyXG4gIH1cclxufVxyXG5hIGxhYmVsIHtcclxuICBjdXJzb3I6IHBvaW50ZXIgIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcbiJdfQ== */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](17, _c8));
+    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkActive"]], styles: ["h3[_ngcontent-%COMP%] {\n  font-size: 16px;\n  line-height: 24px;\n  color: rgba(255, 255, 255, 0.75);\n  margin-bottom: 15px;\n  text-transform: uppercase;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.75);\n}\n\nul[_ngcontent-%COMP%] {\n  list-style: none;\n  margin-bottom: 25px;\n}\n\nul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  font-size: 16px;\n  line-height: 28px;\n  color: rgba(255, 255, 255, 0.75);\n}\n\na[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  cursor: pointer !important;\n}\n\n.active[_ngcontent-%COMP%] {\n  background-color: rgba(128, 128, 128, 0.5);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0NBQUE7RUFDQSxtQkFBQTtFQUNBLHlCQUFBO0VBQ0Esa0RBQUE7QUFDRjs7QUFDQTtFQUNFLGdCQUFBO0VBQ0EsbUJBQUE7QUFFRjs7QUFERTtFQUNFLGVBQUE7RUFDQSxpQkFBQTtFQUNBLGdDQUFBO0FBR0o7O0FBQUE7RUFDRSwwQkFBQTtBQUdGOztBQUFBO0VBQ0UsMENBQUE7QUFHRiIsImZpbGUiOiJzcmMvYXBwL3NpZGViYXIvc2lkZWJhci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImgzIHtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgbGluZS1oZWlnaHQ6IDI0cHg7XHJcbiAgY29sb3I6IHJnYmEoI2ZmZiwgMC43NSk7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2JhKCNmZmYsIDAuNzUpO1xyXG59XHJcbnVsIHtcclxuICBsaXN0LXN0eWxlOiBub25lO1xyXG4gIG1hcmdpbi1ib3R0b206IDI1cHg7XHJcbiAgbGkge1xyXG4gICAgZm9udC1zaXplOiAxNnB4O1xyXG4gICAgbGluZS1oZWlnaHQ6IDI4cHg7XHJcbiAgICBjb2xvcjogcmdiYSgjZmZmLCAwLjc1KTtcclxuICB9XHJcbn1cclxuYSBsYWJlbCB7XHJcbiAgY3Vyc29yOiBwb2ludGVyICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5hY3RpdmUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoZ3JleSwgLjUpO1xyXG59XHJcbiJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SidebarComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -1772,7 +1776,11 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: 'name-search', component: _token_name_search_token_name_search_component__WEBPACK_IMPORTED_MODULE_6__["TokenNameSearchComponent"] },
     { path: '', component: _content_content_component__WEBPACK_IMPORTED_MODULE_4__["ContentComponent"] },
-    { path: 'nft', component: _by_nft_count_content_by_nft_count_content_component__WEBPACK_IMPORTED_MODULE_2__["ByNftCountContentComponent"] },
+    { path: 'lt', component: _content_content_component__WEBPACK_IMPORTED_MODULE_4__["ContentComponent"] },
+    { path: 'eq', component: _content_content_component__WEBPACK_IMPORTED_MODULE_4__["ContentComponent"] },
+    { path: 'nft-gt', component: _by_nft_count_content_by_nft_count_content_component__WEBPACK_IMPORTED_MODULE_2__["ByNftCountContentComponent"] },
+    { path: 'nft-lt', component: _by_nft_count_content_by_nft_count_content_component__WEBPACK_IMPORTED_MODULE_2__["ByNftCountContentComponent"] },
+    { path: 'nft-eq', component: _by_nft_count_content_by_nft_count_content_component__WEBPACK_IMPORTED_MODULE_2__["ByNftCountContentComponent"] },
     { path: 'range', component: _range_content_range_content_component__WEBPACK_IMPORTED_MODULE_5__["RangeContentComponent"] },
     { path: 'collection-search', component: _collection_name_search_collection_name_search_component__WEBPACK_IMPORTED_MODULE_3__["CollectionNameSearchComponent"] }
 ];
