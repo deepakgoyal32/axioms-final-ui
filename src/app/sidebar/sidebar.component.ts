@@ -20,6 +20,12 @@ export class SidebarComponent implements OnInit {
   setSymbol(value:string) {
     localStorage.clear();
     localStorage.setItem('symbol', value);
+    if(value === 'gt')
+      this.loader.title = "more than";
+    else if(value === 'lt')
+      this.loader.title = "less than";
+    else
+      this.loader.title = "exactly";
   }
 
   setRange(value: boolean) {
@@ -30,5 +36,11 @@ export class SidebarComponent implements OnInit {
   setNftSymbol(value:string) {
     localStorage.clear();
     localStorage.setItem('nftSymbol', value);
+    if(value === 'gt')
+      this.loader.title = "more than";
+    else if(value === 'lt')
+      this.loader.title = "less than";
+    else
+      this.loader.title = "exactly";
   }
 }

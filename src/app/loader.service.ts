@@ -6,5 +6,6 @@ import { Injectable } from '@angular/core';
 export class LoaderService {
 
   displayProgressSpinnerInBlock: boolean = false;
+  title: string = "";
   constructor() { }
 }

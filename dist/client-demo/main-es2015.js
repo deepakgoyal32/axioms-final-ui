@@ -126,11 +126,11 @@ class ContentComponent {
     }
 }
 ContentComponent.ɵfac = function ContentComponent_Factory(t) { return new (t || ContentComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_loader_service__WEBPACK_IMPORTED_MODULE_2__["LoaderService"])); };
-ContentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ContentComponent, selectors: [["app-content"]], decls: 13, vars: 8, consts: [[1, "center"], [1, "flex", "column", "align-center"], ["matInput", "", "placeholder", "Input Values", "name", "todo"], ["todo", ""], [1, "primary-btn", 2, "cursor", "pointer", 3, "click"], ["class", "result", 4, "ngIf"], ["infiniteScroll", "", 1, "result-wrapper", "flex", "justify-center", 3, "infiniteScrollDistance", "infiniteScrollThrottle", "scrollWindow", "infiniteScrollContainer", "fromRoot", "scrolled"], [1, "result-inner"], ["class", "row flex space-between", 4, "ngIf"], ["class", "row flex space-between", 4, "ngFor", "ngForOf"], [1, "result"], [1, "row", "flex", "space-between"], [1, "col", "head"], [1, "col", "flex", "align-center", "no-wrap"], ["src", "../../assets/images/wallet.png", "alt", "Logo"], [1, "col", "flex", "align-center"], ["src", "../../assets/images/balance.svg", "alt", "Logo", 1, "count"]], template: function ContentComponent_Template(rf, ctx) { if (rf & 1) {
+ContentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ContentComponent, selectors: [["app-content"]], decls: 13, vars: 9, consts: [[1, "center"], [1, "flex", "column", "align-center"], ["matInput", "", "placeholder", "Input Values", "name", "todo"], ["todo", ""], [1, "primary-btn", 2, "cursor", "pointer", 3, "click"], ["class", "result", 4, "ngIf"], ["infiniteScroll", "", 1, "result-wrapper", "flex", "justify-center", 3, "infiniteScrollDistance", "infiniteScrollThrottle", "scrollWindow", "infiniteScrollContainer", "fromRoot", "scrolled"], [1, "result-inner"], ["class", "row flex space-between", 4, "ngIf"], ["class", "row flex space-between", 4, "ngFor", "ngForOf"], [1, "result"], [1, "row", "flex", "space-between"], [1, "col", "head"], [1, "col", "flex", "align-center", "no-wrap"], ["src", "../../assets/images/wallet.png", "alt", "Logo"], [1, "col", "flex", "align-center"], ["src", "../../assets/images/balance.svg", "alt", "Logo", 1, "count"]], template: function ContentComponent_Template(rf, ctx) { if (rf & 1) {
         const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Wallets containing X Price");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "form", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "input", 2, 3);
@@ -149,7 +149,9 @@ ContentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Wallets containing ", ctx.loader.title, " X Price");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.records && ctx.records.length > 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("infiniteScrollDistance", 2)("infiniteScrollThrottle", 50)("scrollWindow", true)("infiniteScrollContainer", ".result-inner")("fromRoot", false);
@@ -208,6 +210,12 @@ class SidebarComponent {
     setSymbol(value) {
         localStorage.clear();
         localStorage.setItem('symbol', value);
+        if (value === 'gt')
+            this.loader.title = "more than";
+        else if (value === 'lt')
+            this.loader.title = "less than";
+        else
+            this.loader.title = "exactly";
     }
     setRange(value) {
         localStorage.clear();
@@ -216,6 +224,12 @@ class SidebarComponent {
     setNftSymbol(value) {
         localStorage.clear();
         localStorage.setItem('nftSymbol', value);
+        if (value === 'gt')
+            this.loader.title = "more than";
+        else if (value === 'lt')
+            this.loader.title = "less than";
+        else
+            this.loader.title = "exactly";
     }
 }
 SidebarComponent.ɵfac = function SidebarComponent_Factory(t) { return new (t || SidebarComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_loader_service__WEBPACK_IMPORTED_MODULE_1__["LoaderService"])); };
@@ -333,6 +347,7 @@ __webpack_require__.r(__webpack_exports__);
 class LoaderService {
     constructor() {
         this.displayProgressSpinnerInBlock = false;
+        this.title = "";
     }
 }
 LoaderService.ɵfac = function LoaderService_Factory(t) { return new (t || LoaderService)(); };
@@ -763,11 +778,11 @@ class ByNftCountContentComponent {
     }
 }
 ByNftCountContentComponent.ɵfac = function ByNftCountContentComponent_Factory(t) { return new (t || ByNftCountContentComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_loader_service__WEBPACK_IMPORTED_MODULE_4__["LoaderService"])); };
-ByNftCountContentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ByNftCountContentComponent, selectors: [["app-by-nft-count-content"]], decls: 13, vars: 8, consts: [[1, "center"], [1, "flex", "column", "align-center"], ["matInput", "", "placeholder", "Input Values", "name", "todo"], ["todo", ""], [1, "primary-btn", 2, "cursor", "pointer", 3, "click"], ["class", "result", 4, "ngIf"], ["infiniteScroll", "", 1, "result-wrapper", "flex", "justify-center", 3, "infiniteScrollDistance", "infiniteScrollThrottle", "scrollWindow", "infiniteScrollContainer", "fromRoot", "scrolled"], [1, "result-inner"], ["class", "row flex space-between", 4, "ngIf"], ["class", "row flex space-between", 4, "ngFor", "ngForOf"], [1, "result"], [1, "row", "flex", "space-between"], [1, "col", "head"], [1, "col", "flex", "align-center", "no-wrap"], ["src", "../../assets/images/wallet.png", "alt", "Logo"], [1, "col", "flex", "align-center"], ["src", "../../assets/images/balance.svg", "alt", "Logo", 1, "count"], ["mat-raised-button", "", "color", "success", 2, "cursor", "pointer", 3, "click"]], template: function ByNftCountContentComponent_Template(rf, ctx) { if (rf & 1) {
+ByNftCountContentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ByNftCountContentComponent, selectors: [["app-by-nft-count-content"]], decls: 13, vars: 9, consts: [[1, "center"], [1, "flex", "column", "align-center"], ["matInput", "", "placeholder", "Input Values", "name", "todo"], ["todo", ""], [1, "primary-btn", 2, "cursor", "pointer", 3, "click"], ["class", "result", 4, "ngIf"], ["infiniteScroll", "", 1, "result-wrapper", "flex", "justify-center", 3, "infiniteScrollDistance", "infiniteScrollThrottle", "scrollWindow", "infiniteScrollContainer", "fromRoot", "scrolled"], [1, "result-inner"], ["class", "row flex space-between", 4, "ngIf"], ["class", "row flex space-between", 4, "ngFor", "ngForOf"], [1, "result"], [1, "row", "flex", "space-between"], [1, "col", "head"], [1, "col", "flex", "align-center", "no-wrap"], ["src", "../../assets/images/wallet.png", "alt", "Logo"], [1, "col", "flex", "align-center"], ["src", "../../assets/images/balance.svg", "alt", "Logo", 1, "count"], ["mat-raised-button", "", "color", "success", 2, "cursor", "pointer", 3, "click"]], template: function ByNftCountContentComponent_Template(rf, ctx) { if (rf & 1) {
         const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Wallets containing more than X NFTs");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "form", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "input", 2, 3);
@@ -786,7 +801,9 @@ ByNftCountContentComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Wallets containing ", ctx.loader.title, " X NFTs");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.records && ctx.records.length > 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("infiniteScrollDistance", 2)("infiniteScrollThrottle", 50)("scrollWindow", true)("infiniteScrollContainer", ".result-inner")("fromRoot", false);

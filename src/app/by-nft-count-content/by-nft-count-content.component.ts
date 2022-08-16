@@ -22,7 +22,7 @@ export class ByNftCountContentComponent implements OnInit {
 
   records = [];
 
-  constructor(private http: HttpClient, public dialog: MatDialog, private loader: LoaderService) { }
+  constructor(private http: HttpClient, public dialog: MatDialog, public loader: LoaderService) { }
 
   ngOnInit(): void { }
 

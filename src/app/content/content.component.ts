@@ -18,7 +18,7 @@ export class ContentComponent implements OnInit {
 
   records = [];
 
-  constructor(private http: HttpClient, private loader: LoaderService) {}
+  constructor(private http: HttpClient, public loader: LoaderService) {}
 
   ngOnInit(): void {}
 
