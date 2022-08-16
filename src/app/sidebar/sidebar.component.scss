@@ -19,4 +19,6 @@ a label {
   cursor: pointer !important;
 }
 
-
+.active {
+  background-color: rgba(grey, .5);
+}
