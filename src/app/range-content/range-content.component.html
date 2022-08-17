@@ -1,5 +1,5 @@
 <div class="center">
-    <h1>Wallets containing nfts having more than X price</h1>
+    <h1>Total ETHER VALUE (Range)</h1>
     <form class="flex column align-center">
         <div class="custom-slider">
             <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" ></ngx-slider>
@@ -25,7 +25,7 @@
                 <div class="col align-center head">Wallet Address</div>
             </div>
             <div class="row flex space-between" *ngFor="let record of records;">
-                <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> {{record.owner_address}}</div>
+                <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> <a target="_blank" href="https://etherscan.io/address/{{record.owner_address}}"  style="cursor: pointer;">{{record.owner_address}}</a></div>
             </div>
         </div>
     </div>

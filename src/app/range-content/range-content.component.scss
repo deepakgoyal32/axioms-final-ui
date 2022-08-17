@@ -96,11 +96,11 @@ form{
         width: 500px;
     }
     .custom-slider .ngx-slider .ngx-slider-bar {
-      background: greenyellow;
+      background: white;
       height: 5px;
     }
     .custom-slider .ngx-slider .ngx-slider-selection {
-      background: green;
+      background: grey;
     }
   
     .custom-slider .ngx-slider .ngx-slider-pointer {
@@ -108,7 +108,7 @@ form{
       height: 15px;
       top: auto; /* to remove the default positioning */
       bottom: 0;
-      background-color: greenyellow;
+      background-color: white;
     }
   
     .custom-slider .ngx-slider .ngx-slider-pointer:after {

@@ -3,16 +3,12 @@
   <table mat-table [dataSource]="dataSource11">
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      <mat-cell *matCellDef="let element"> <a class="nav-link" href="{{element.permalink}}" target="_blank" style="cursor: pointer;">{{element.name}}</a> </mat-cell>
     </ng-container>
     <ng-container matColumnDef="collection_name">
       <mat-header-cell *matHeaderCellDef> Collection Name </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.collection_name}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="permalink">
-        <mat-header-cell *matHeaderCellDef> Provider Page Link </mat-header-cell>
-        <mat-cell *matCellDef="let element"> <a class="nav-link" href="{{element.permalink}}" target="_blank" style="cursor: pointer;">View on Provider Page</a> </mat-cell>
-      </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns11"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns11;"></mat-row>
   </table>

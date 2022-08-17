@@ -57,7 +57,7 @@ form{
     }
 }
 .col{
-    width: 25%;
+    width: 33%;
     text-align: left;
     word-break: break-word;
     font-size: 16px;
@@ -75,10 +75,6 @@ form{
         border-right: 1px solid rgba(#fff,.75);
     }
     &:nth-child(2){
-        padding: 20px 20px 20px 20px;
-        border-right: 1px solid rgba(#fff,.75);
-    }
-    &:nth-child(3){
         padding: 20px 20px 20px 20px;
         border-right: 1px solid rgba(#fff,.75);
     }

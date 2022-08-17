@@ -19,6 +19,7 @@ export class TokenNameSearchComponent implements OnInit {
   selectedValue: string = '';
   selectedSymbol: string = 'gt';
   selectedOptionValue: string;
+  selectedContractAddress: string;
   next: number = 0;
   previous: number = 0;
 
@@ -30,7 +31,7 @@ export class TokenNameSearchComponent implements OnInit {
   options: Observable<any>;
 
   ngOnInit() {
-    this.InitialValues('');
+    this.InitialValues('Cryptopunks');
   }
 
   @HostListener('document:click', ['$event'])
@@ -55,21 +56,21 @@ export class TokenNameSearchComponent implements OnInit {
   }
 
   displayFn(option?: any): string | undefined {
-    return option ? option.contract_name : undefined;
+    return option ? option.name : undefined;
   }
 
   changeSelectedOption(event: any) {
-    this.selectedOptionValue = event.option.value.contract_address;
+    this.selectedContractAddress = event.option.value.contract_address;
+    this.selectedOptionValue = event.option.value.token_id;
   }
 
   SendRequest(value: string, page: number) {
-    console.log(value);
-    console.log(this.selectedValue);
     this.loader.displayProgressSpinnerInBlock = true;
     if(page <= 1) this.records = [];
     this.next = 0;
     this.previous = 0;
-    this.getWalletAddressesForExactNameSearch(value, page).subscribe(response => {
+    
+    this.getWalletAddressesForExactNameSearch(this.selectedContractAddress, this.selectedOptionValue, page).subscribe(response => {
       response.results.forEach(element => {
         this.records.push(element);
       });
@@ -83,8 +84,9 @@ export class TokenNameSearchComponent implements OnInit {
     });
   }
 
-  public getWalletAddressesForExactNameSearch(value: string, page: number): Observable<any> {
-    const url = this.baseUrl + '/nfts/name/search?p=' + value + '&limit=50' + (page > 0 ? '&page=' + page : '');
+  public getWalletAddressesForExactNameSearch(contract_address: string, token_id: string, page: number): Observable<any> {
+    const url = this.baseUrl + '/nfts/name/search?contract_address=' + contract_address + '&token_id=' + token_id + '&limit=50' + (page > 0 ? '&page=' + page : '');
+    console.log(url);
     return this.http.get<any>(url);
   }
 

@@ -18,9 +18,9 @@
     >
       <mat-optgroup *ngFor="let option of options | async">
         <mat-option [value]="option"
-          ><strong>{{ option.contract_name }}</strong></mat-option
+          ><strong>{{ option.name }}</strong></mat-option
         >
-        <mat-option [value]="option">{{ option.contract_address }}</mat-option>
+        <mat-option [value]="option">{{ option.contract_address + ' ' + option.token_id }}</mat-option>
       </mat-optgroup>
     </mat-autocomplete>
   </form>
@@ -34,48 +34,24 @@
   </button>
   <div class="result" *ngIf="records && records.length > 0">Results</div>
 
-  <div
-    class="result-wrapper flex justify-center"
-    infiniteScroll
+    <div class="result-wrapper flex justify-center" infiniteScroll
     [infiniteScrollDistance]="2"
     [infiniteScrollThrottle]="50"
     [scrollWindow]="true"
     [infiniteScrollContainer]="'.result-inner'"
     [fromRoot]="false"
-    (scrolled)="onScroll('')"
-  >
-    <div class="result-inner">
-      <div class="row flex space-between" *ngIf="records && records.length > 0">
-        <div class="col head">Name</div>
-        <div class="col head">View Provider Page</div>
-        <div class="col head">Wallet Address</div>
-        <div class="col head">View on Etherscan</div>
-      </div>
-      <div class="row flex space-between" *ngFor="let record of records">
-        <div class="col flex align-center no-wrap">{{ record.name }}</div>
-        <div class="col flex align-center">
-          <a
-            href="{{ record.permalink }}"
-            target="_blank"
-            style="cursor: pointer"
-            >View Provider Page</a
-          >
+    (scrolled)="onScroll('')">
+        <div class="result-inner">
+            <div class="row flex space-between" *ngIf="records && records.length > 0">
+                <div class="col head">Collection Name</div>
+                <div class="col head">View Provider Page</div>
+                <div class="col head">Wallet Address</div>
+            </div>
+            <div class="row flex space-between" *ngFor="let record of records;">
+                <div class="col flex align-center no-wrap">{{record.name}}</div>
+                <div class="col flex align-center"><img src="../../assets/images/nft-count-old.png" alt="Logo" /><a href="{{record.permalink}}" target="_blank" style="cursor: pointer;">{{record.token_id}}</a></div>
+                <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> <a target="_blank" href="https://etherscan.io/nft/{{record.contract_address}}/{{record.token_id}}"  style="cursor: pointer;">{{record.owner_address}}</a></div>
+            </div>
         </div>
-        <div class="col flex align-center no-wrap">
-          <img src="../../assets/images/wallet.png" alt="Logo" />
-          {{ record.owner_address }}
-        </div>
-        <div class="col flex align-center">
-          <a
-            target="_blank"
-            href="https://etherscan.io/nft/{{ record.contract_address }}/{{
-              record.token_id
-            }}"
-            style="cursor: pointer"
-            >View on Etherscan</a
-          >
-        </div>
-      </div>
     </div>
-  </div>
 </div>

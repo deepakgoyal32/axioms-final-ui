@@ -13,7 +13,7 @@ export class DialogComponent implements OnInit {
   baseUrl: string = 'http://52.22.129.105:9001'; //'http://107.22.58.206:9000';
   next: number = 0;
   previous: number = 0;
-  displayedColumns11 = ['name', 'collection_name', 'permalink'];
+  displayedColumns11 = ['name', 'collection_name'];
 
   dataSource11 = new MatTableDataSource<any>([{ name: '', collection_name: '', permalink: ''}]);
 
