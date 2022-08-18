@@ -1,5 +1,5 @@
 <div class="center">
-    <h1>NFT Price (Range)</h1>
+    <h1>Total Ether Value (Range)</h1>
     <form class="flex column align-center" #myForm>
         <div class="custom-slider">
             <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" ></ngx-slider>
@@ -22,10 +22,12 @@
     (scrolled)="onScroll()">
         <div class="result-inner">
             <div class="row flex space-between" *ngIf="records && records.length > 0">
-                <div class="col align-center head">Wallet Address</div>
+                <div class="col head">Wallet Address</div>
+                <div class="col head">Balance</div>
             </div>
             <div class="row flex space-between" *ngFor="let record of records;">
-                <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> <a target="_blank" href="https://etherscan.io/address/{{record.owner_address}}"  style="cursor: pointer;">{{record.owner_address}}</a></div>
+                <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> <a target="_blank" href="https://etherscan.io/address/{{record.address}}"  style="cursor: pointer;">{{record.address}}</a></div>
+                <div class="col flex align-center"><img src="../../assets/images/balance.svg" alt="Logo" class="count" /> {{record.balance}}</div>
             </div>
         </div>
     </div>

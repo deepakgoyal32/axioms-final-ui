@@ -27,6 +27,7 @@ import { ByNftCountContentComponent } from './by-nft-count-content/by-nft-count-
 import { TokenNameSearchComponent } from './token-name-search/token-name-search.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { CollectionNameSearchComponent } from './collection-name-search/collection-name-search.component';
+import { BalanceRangeContentComponent } from './balance-range-content/balance-range-content.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CollectionNameSearchComponent } from './collection-name-search/collecti
     RangeContentComponent,
     ByNftCountContentComponent,
     TokenNameSearchComponent,
-    CollectionNameSearchComponent
+    CollectionNameSearchComponent,
+    BalanceRangeContentComponent
   ],
   imports: [
     BrowserModule,

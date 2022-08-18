@@ -6,11 +6,11 @@ import { MatInputModule } from '@angular/material/input';
 import { LoaderService } from '../loader.service';
 
 @Component({
-  selector: 'app-range-content',
-  templateUrl: './range-content.component.html',
-  styleUrls: ['./range-content.component.scss']
+  selector: 'app-balance-range-content',
+  templateUrl: './balance-range-content.component.html',
+  styleUrls: ['./balance-range-content.component.scss']
 })
-export class RangeContentComponent implements OnInit {
+export class BalanceRangeContentComponent implements OnInit {
   @ViewChild('minInput', {static: true}) minInputElement: ElementRef;
   @ViewChild('maxInput', {static: true}) maxInputElement: ElementRef;
   baseUrl: string = 'http://52.22.129.105:9001'; //'http://107.22.58.206:9000';
@@ -78,7 +78,7 @@ export class RangeContentComponent implements OnInit {
       console.log(this.minValue);
       console.log(this.maxValue);
       let symbol = localStorage.getItem('symbol');
-      this.getWalletAddressesForPriceRange(this.minValue, this.maxValue, page).subscribe(response => {
+      this.getWalletAddressesForXPriceRange(this.minValue, this.maxValue, page).subscribe(response => {
         this.records = response.results;
         if (response.next && response.next.page && response.next.page !== '' && response.next.page !== 0) {
           this.next = response.next.page;
@@ -95,10 +95,21 @@ export class RangeContentComponent implements OnInit {
     }
   }
 
-  public getWalletAddressesForPriceRange(min: number, max: number, page: number): Observable<any> {
-    const url = this.baseUrl + '/nfts/price?gte=' + min + '&lte=' + max + '&limit=50' + (page > 0 ? '&page=' + page : '');
+  public getWalletAddressesForXPriceRange(
+    value: number,
+    maxValue: number,
+    page: number
+  ): Observable<any> {
+    const url =
+      this.baseUrl +
+      "/wallet/address?gte=" +
+      value +
+      "&lte=" +
+      maxValue +
+      "&limit=50" +
+      (page > 0 ? "&page=" + page : "");
+    console.log(url);
     return this.http.get<any>(url);
   }
-
 
 }

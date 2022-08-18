@@ -6,7 +6,7 @@
     <li><a [routerLink]="['/']" routerLinkActive="active" (click)="setSymbol('gt');" style="cursor: pointer;">Value (greater than)</a></li>
     <li><a [routerLink]="['/lt']" routerLinkActive="active" (click)="setSymbol('lt');" style="cursor: pointer;">Value (less than)</a></li>
     <li><a [routerLink]="['/eq']" routerLinkActive="active" (click)="setSymbol('eq');" style="cursor: pointer;">Value (exact match)</a></li>
-    <li><a [routerLink]="['/range']" routerLinkActive="active" (click)="setRange(true);" style="cursor: pointer;">Value (range)</a></li>
+    <li><a [routerLink]="['/bal-range']" routerLinkActive="active" (click)="setRange(true);" style="cursor: pointer;">Value (range)</a></li>
 </ul>
 
 <h3>NFT</h3>
@@ -14,6 +14,7 @@
 <ul>
     <li><a [routerLink]="['/name-search']" routerLinkActive="active" style="cursor: pointer;">By Name</a></li>
     <li><a [routerLink]="['/collection-search']" routerLinkActive="active" style="cursor: pointer;">By Collection</a></li>
+    <li><a [routerLink]="['/range']" routerLinkActive="active" (click)="setRange(true);" style="cursor: pointer;">NFT Price (range)</a></li>
     <li><a [routerLink]="['/nft-gt']" routerLinkActive="active" (click)="setNftSymbol('gt');" style="cursor: pointer;"># of NFTs (greater than)</a></li>
     <li><a [routerLink]="['/nft-lt']" routerLinkActive="active" (click)="setNftSymbol('lt');" style="cursor: pointer;"># of NFTs (less than)</a></li>
     <li><a [routerLink]="['/nft-eq']" routerLinkActive="active" (click)="setNftSymbol('eq');" style="cursor: pointer;"># of NFTs (exact match)</a></li>
