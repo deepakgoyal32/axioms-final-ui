@@ -16,7 +16,7 @@
           </mat-autocomplete>
     </form>
 
-    <button class="primary-btn" (click)="SendRequest(todo.value, 1)">Submit</button> 
+    <button [disabled]="isDisabled" class="primary-btn" (click)="SendRequest(todo.value, 1)">Submit</button> 
     <div class="result" *ngIf="records && records.length > 0">Results</div>
 
     <div class="result-wrapper flex justify-center" infiniteScroll
@@ -34,7 +34,7 @@
             </div>
             <div class="row flex space-between" *ngFor="let record of records;">
                 <div class="col flex align-center no-wrap">{{record.collection_name}}</div>
-                <div class="col flex align-center"><img src="../../assets/images/nft-count-old.png" alt="Logo" /><a href="{{record.permalink}}" target="_blank" style="cursor: pointer;">{{record.token_id}}</a></div>
+                <div class="col flex align-center"><img src="../../assets/images/nft-count-old.png" alt="Logo" /><a href="https://opensea.io/assets/ethereum/{{record.contract_address}}/{{record.token_id}}" target="_blank" style="cursor: pointer;">{{record.token_id}}</a></div>
                 <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> <a target="_blank" href="https://etherscan.io/nft/{{record.contract_address}}/{{record.token_id}}"  style="cursor: pointer;">{{record.owner_address}}</a></div>
             </div>
         </div>

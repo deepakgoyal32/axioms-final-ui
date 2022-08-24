@@ -22,6 +22,7 @@ export class CollectionNameSearchComponent implements OnInit {
   selectedOptionValue: string;
   next: number = 0;
   previous: number = 0;
+  isDisabled: boolean = true;
   records = [];
 
   constructor(private http: HttpClient, private loader: LoaderService) { }
@@ -60,6 +61,7 @@ export class CollectionNameSearchComponent implements OnInit {
   }
 
   changeSelectedOption(event: any) {
+    this.isDisabled = false;
     this.selectedOptionValue = event.option.value.contract_address;
   }
 

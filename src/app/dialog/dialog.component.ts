@@ -15,7 +15,7 @@ export class DialogComponent implements OnInit {
   previous: number = 0;
   displayedColumns11 = ['name', 'collection_name'];
 
-  dataSource11 = new MatTableDataSource<any>([{ name: '', collection_name: '', permalink: ''}]);
+  dataSource11 = new MatTableDataSource<any>([{ name: '', collection_name: '', contract_address: '', token_id: ''}]);
 
   constructor(private http: HttpClient, @Inject(MAT_DIALOG_DATA) public data: any) { }
 

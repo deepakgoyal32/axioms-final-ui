@@ -23,9 +23,11 @@
         <div class="result-inner">
             <div class="row flex space-between" *ngIf="records && records.length > 0">
                 <div class="col align-center head">Wallet Address</div>
+                <div class="col align-center head">View Provider Page</div>
             </div>
             <div class="row flex space-between" *ngFor="let record of records;">
                 <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> <a target="_blank" href="https://etherscan.io/address/{{record.owner_address}}"  style="cursor: pointer;">{{record.owner_address}}</a></div>
+                <div class="col flex align-center"><img src="../../assets/images/nft-count-old.png" alt="Logo" /><a href="https://opensea.io/assets/ethereum/{{record.contract_address}}/{{record.token_id}}" target="_blank" style="cursor: pointer;">{{record.token_id}}</a></div>
             </div>
         </div>
     </div>

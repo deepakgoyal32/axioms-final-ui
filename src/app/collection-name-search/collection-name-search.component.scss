@@ -130,3 +130,12 @@ form{
     display: block;
     padding: 5px 20px;
 }
+
+.primary-btn:disabled {
+    background-color:rgba(grey, 0.25);
+}
+
+::ng-deep .mat-autocomplete-panel .mat-optgroup .mat-option:not(.mat-option-multiple).mat-selected{
+    background: none;
+    display: block;
+}

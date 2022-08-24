@@ -3,7 +3,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
-import {map, startWith} from 'rxjs/operators';
+import {map, startWith, tap} from 'rxjs/operators';
 import { debounce } from 'lodash'
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { LoaderService } from '../loader.service';
@@ -22,7 +22,8 @@ export class TokenNameSearchComponent implements OnInit {
   selectedContractAddress: string;
   next: number = 0;
   previous: number = 0;
-
+  isLoading: boolean = false;
+  isDisabled: boolean = true;
   records = [];
 
   constructor(private http: HttpClient, private loader: LoaderService) { }
@@ -41,7 +42,7 @@ export class TokenNameSearchComponent implements OnInit {
     }
   }
 
-  @Debounce(500)
+  @Debounce(300)
   onKeyUp(event: any) {
     this.selectedValue = event.target.value;
     this.InitialValues(this.selectedValue);
@@ -52,7 +53,11 @@ export class TokenNameSearchComponent implements OnInit {
   }
 
   InitialValues(value: string){
-    this.options = this.getInitialSearchValues(value).pipe(map(item => item.results));
+    if (value == '') {
+      value = 'Cryptopunks';
+    }
+    this.isLoading = true;
+    this.options = this.getInitialSearchValues(value).pipe(map(item => item.results),tap(val => { this.isLoading = false;}));
   }
 
   displayFn(option?: any): string | undefined {
@@ -60,6 +65,7 @@ export class TokenNameSearchComponent implements OnInit {
   }
 
   changeSelectedOption(event: any) {
+    this.isDisabled = false;
     this.selectedContractAddress = event.option.value.contract_address;
     this.selectedOptionValue = event.option.value.token_id;
   }

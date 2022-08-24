@@ -23,7 +23,7 @@
             <div class="row flex space-between" *ngFor="let record of records;">
                 <div class="col flex align-center no-wrap"><img src="../../assets/images/wallet.png" alt="Logo" /> <a target="_blank" href="https://etherscan.io/address/{{record.owner_address}}"  style="cursor: pointer;">{{record.owner_address}}</a></div>
                 <div class="col flex align-center"><img src="../../assets/images/balance.svg" alt="Logo" class="count" /> {{record.count_id}}</div>
-                <div class="col flex align-center"><button mat-raised-button color="success" (click)="openDialog(record.owner_address)" style="cursor: pointer;">View NFT</button></div>
+                <div class="col flex align-center"><button mat-raised-button color="success" (click)="openDialog(record.owner_address)" style="cursor: pointer;">Show List</button></div>
             </div>
         </div>
     </div>

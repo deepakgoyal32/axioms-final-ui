@@ -3,7 +3,7 @@
   <table mat-table [dataSource]="dataSource11">
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <a class="nav-link" href="{{element.permalink}}" target="_blank" style="cursor: pointer;">{{element.name}}</a> </mat-cell>
+      <mat-cell *matCellDef="let element"> <a class="nav-link" href="https://opensea.io/assets/ethereum/{{element.contract_address}}/{{element.token_id}}" target="_blank" style="cursor: pointer;">{{element.name}}</a> </mat-cell>
     </ng-container>
     <ng-container matColumnDef="collection_name">
       <mat-header-cell *matHeaderCellDef> Collection Name </mat-header-cell>
