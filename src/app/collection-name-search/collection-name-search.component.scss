@@ -133,6 +133,7 @@ form{
 
 .primary-btn:disabled {
     background-color:rgba(grey, 0.25);
+    cursor: not-allowed;
 }
 
 ::ng-deep .mat-autocomplete-panel .mat-optgroup .mat-option:not(.mat-option-multiple).mat-selected{

@@ -36,6 +36,7 @@ export class CollectionNameSearchComponent implements OnInit {
 
   @Debounce(500)
   onKeyUp(event: any) {
+    this.isDisabled = true;
     const value = event.target.value;
     this.selectedValue = value;
     this.InitialValues(value);

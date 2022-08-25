@@ -42,8 +42,9 @@ export class TokenNameSearchComponent implements OnInit {
     }
   }
 
-  @Debounce(300)
+  @Debounce(500)
   onKeyUp(event: any) {
+    this.isDisabled = true;
     this.selectedValue = event.target.value;
     this.InitialValues(this.selectedValue);
   }
