@@ -390,26 +390,22 @@
       };
 
       var _c4 = function _c4() {
-        return ["/name-search"];
-      };
-
-      var _c5 = function _c5() {
         return ["/collection-search"];
       };
 
-      var _c6 = function _c6() {
+      var _c5 = function _c5() {
         return ["/range"];
       };
 
-      var _c7 = function _c7() {
+      var _c6 = function _c6() {
         return ["/nft-gt"];
       };
 
-      var _c8 = function _c8() {
+      var _c7 = function _c7() {
         return ["/nft-lt"];
       };
 
-      var _c9 = function _c9() {
+      var _c8 = function _c8() {
         return ["/nft-eq"];
       };
 
@@ -458,8 +454,8 @@
       SidebarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
         type: SidebarComponent,
         selectors: [["app-sidebar"]],
-        decls: 38,
-        vars: 20,
+        decls: 35,
+        vars: 18,
         consts: [["routerLinkActive", "active", 2, "cursor", "pointer", 3, "routerLink", "click"], ["routerLinkActive", "active", 2, "cursor", "pointer", 3, "routerLink"]],
         template: function SidebarComponent_Template(rf, ctx) {
           if (rf & 1) {
@@ -547,7 +543,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "a", 1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "By Name");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Collection Name");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -555,9 +551,13 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "li");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "a", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "a", 0);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "By Collection");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SidebarComponent_Template_a_click_24_listener() {
+              return ctx.setRange(true);
+            });
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "NFT Price (range)");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -568,10 +568,10 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "a", 0);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SidebarComponent_Template_a_click_27_listener() {
-              return ctx.setRange(true);
+              return ctx.setNftSymbol("gt");
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "NFT Price (range)");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "# of NFTs (greater than)");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -582,10 +582,10 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "a", 0);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SidebarComponent_Template_a_click_30_listener() {
-              return ctx.setNftSymbol("gt");
+              return ctx.setNftSymbol("lt");
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "# of NFTs (greater than)");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "# of NFTs (less than)");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -596,24 +596,10 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "a", 0);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SidebarComponent_Template_a_click_33_listener() {
-              return ctx.setNftSymbol("lt");
-            });
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "# of NFTs (less than)");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "li");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "a", 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SidebarComponent_Template_a_click_36_listener() {
               return ctx.setNftSymbol("eq");
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](37, "# of NFTs (exact match)");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "# of NFTs (exact match)");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -625,43 +611,39 @@
           if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](10, _c0));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](9, _c0));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](11, _c1));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](10, _c1));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](12, _c2));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](11, _c2));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](13, _c3));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](12, _c3));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](14, _c4));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](13, _c4));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](15, _c5));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](14, _c5));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](16, _c6));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](15, _c6));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](17, _c7));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](16, _c7));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](18, _c8));
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](19, _c9));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](17, _c8));
           }
         },
         directives: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkActive"]],
@@ -3439,7 +3421,7 @@
         },
         decls: 18,
         vars: 16,
-        consts: [[1, "center"], [1, "flex-column", "align-center"], ["type", "text", "placeholder", "Pick one", "aria-label", "Number", "matInput", "", 3, "formControl", "matAutocomplete", "keyup"], ["todo", ""], [3, "displayWith", "optionSelected"], ["auto", "matAutocomplete"], [4, "ngFor", "ngForOf"], ["class", "spinner internal-spinner", "diameter", "20", 4, "ngIf"], [1, "primary-btn", 2, "cursor", "pointer", 3, "disabled", "click"], ["class", "result", 4, "ngIf"], ["infiniteScroll", "", 1, "result-wrapper", "flex", "justify-center", 3, "infiniteScrollDistance", "infiniteScrollThrottle", "scrollWindow", "infiniteScrollContainer", "fromRoot", "scrolled"], [1, "result-inner"], ["class", "row flex space-between", 4, "ngIf"], ["class", "row flex space-between", 4, "ngFor", "ngForOf"], [3, "value"], ["diameter", "20", 1, "spinner", "internal-spinner"], [1, "result"], [1, "row", "flex", "space-between"], [1, "col", "head"], [1, "col", "flex", "align-center", "no-wrap"], [1, "col", "flex", "align-center"], ["src", "../../assets/images/nft-count-old.png", "alt", "Logo"], ["target", "_blank", 2, "cursor", "pointer", 3, "href"], ["src", "../../assets/images/wallet.png", "alt", "Logo"]],
+        consts: [[1, "center"], [1, "flex-column", "align-center"], ["type", "text", "placeholder", "Pick one", "aria-label", "Number", "matInput", "", 3, "formControl", "matAutocomplete", "keyup"], ["todo", ""], [3, "displayWith", "optionSelected"], ["auto", "matAutocomplete"], [4, "ngFor", "ngForOf"], ["class", "spinner internal-spinner", "diameter", "20", 4, "ngIf"], [1, "primary-btn", 3, "disabled", "click"], ["class", "result", 4, "ngIf"], ["infiniteScroll", "", 1, "result-wrapper", "flex", "justify-center", 3, "infiniteScrollDistance", "infiniteScrollThrottle", "scrollWindow", "infiniteScrollContainer", "fromRoot", "scrolled"], [1, "result-inner"], ["class", "row flex space-between", 4, "ngIf"], ["class", "row flex space-between", 4, "ngFor", "ngForOf"], [3, "value"], ["diameter", "20", 1, "spinner", "internal-spinner"], [1, "result"], [1, "row", "flex", "space-between"], [1, "col", "head"], [1, "col", "flex", "align-center", "no-wrap"], [1, "col", "flex", "align-center"], ["src", "../../assets/images/nft-count-old.png", "alt", "Logo"], ["target", "_blank", 2, "cursor", "pointer", 3, "href"], ["src", "../../assets/images/wallet.png", "alt", "Logo"]],
         template: function TokenNameSearchComponent_Template(rf, ctx) {
           if (rf & 1) {
             var _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
