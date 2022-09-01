@@ -9,7 +9,8 @@ import { TokenNameSearchComponent } from './token-name-search/token-name-search.
 
 const routes: Routes = [
   { path: 'name-search', component: TokenNameSearchComponent },
-  { path: '', component: ContentComponent },
+  { path: '', redirectTo: 'gt', pathMatch: 'full' },
+  { path: 'gt', component: ContentComponent },
   { path: 'lt', component: ContentComponent },
   { path: 'eq', component: ContentComponent },
   { path: 'nft-gt', component: ByNftCountContentComponent },
