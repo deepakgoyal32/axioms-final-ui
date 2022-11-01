@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoaderService } from '../loader.service';
+import { Router, Event, NavigationStart, NavigationEnd, NavigationError} from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,12 +13,41 @@ export class SidebarComponent implements OnInit {
   value = 50;
   color = 'primary';
 
-  constructor(public loader: LoaderService) { }
+  currentRoute : string;
+
+  constructor(public loader: LoaderService, private router : Router) {
+    
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+          // Show progress spinner or progress bar
+          console.log('Route change detected');
+      }
+
+      if (event instanceof NavigationEnd) {
+        // Hide progress spinner or progress bar
+        this.currentRoute = event.url;  
+                
+        if(this.currentRoute.includes('nft')){
+          this.setNftSymbol(this.currentRoute.substring(this.currentRoute.length-2, this.currentRoute.length));
+        } else {
+          this.setSymbol(this.currentRoute.substring(1, this.currentRoute.length) || 'gt');
+        }
+      }
+
+      if (event instanceof NavigationError) {
+           // Hide progress spinner or progress bar
+
+          // Present error to user
+          console.log(event.error);
+      }
+  });
+  }
 
   ngOnInit(): void {
   }
 
   setSymbol(value:string) {
+    
     localStorage.clear();
     localStorage.setItem('symbol', value);
     if(value === 'gt')
@@ -39,7 +69,7 @@ export class SidebarComponent implements OnInit {
     if(value === 'gt')
       this.loader.title = "more than";
     else if(value === 'lt')
-      this.loader.title = "less than";
+      this.loader.title = "fewer than";
     else
       this.loader.title = "exactly";
   }
