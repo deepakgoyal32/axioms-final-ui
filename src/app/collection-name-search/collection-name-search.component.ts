@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild, AfterViewInit, AfterContentInit, ChangeDetectorRef} from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -9,13 +9,14 @@ import { map } from 'rxjs/operators';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { LoaderService } from '../loader.service';
 import { eventNames } from 'process';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-collection-name-search',
   templateUrl: './collection-name-search.component.html',
   styleUrls: ['./collection-name-search.component.scss']
 })
-export class CollectionNameSearchComponent implements OnInit {
+export class CollectionNameSearchComponent implements OnInit, AfterContentInit {
   @ViewChild(MatAutocomplete) matAutocomplete: MatAutocomplete;
   baseUrl: string = 'http://52.22.129.105:9001';
   selectedValue: string = '';
@@ -24,14 +25,47 @@ export class CollectionNameSearchComponent implements OnInit {
   previous: number = 0;
   isDisabled: boolean = true;
   records = [];
+  address : string;
+  name : string;
 
-  constructor(private http: HttpClient, private loader: LoaderService) { }
+  constructor(
+    private http: HttpClient,
+    private loader: LoaderService,
+    private _activatedRoute: ActivatedRoute,
+    private _router:Router
+  ) {
+      this._activatedRoute.queryParams.subscribe(
+        params => {
+          this.address = params["address"]
+          this.name = params["name"]
+          
+        })
+     }
 
   myControl = new FormControl('');
   options: Observable<any>;
 
   ngOnInit() {
-    this.InitialValues('');
+    this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+    if(this.name){
+      this.InitialValues(this.name)
+      this.selectedValue = this.name;
+      this.selectedOptionValue = this.address;
+      
+    } else {
+      this.InitialValues('');
+    }
+  }
+
+  ngAfterContentInit() {
+    setTimeout(() => {
+      
+      this.matAutocomplete.options?.first?.select();
+      this.myControl.setValue({contract_name : this.name, contract_address : this.address })
+      this.SendRequest(this.name, 1)
+    }, 1000)
+    
+    
   }
 
   @Debounce(500)
@@ -53,7 +87,7 @@ export class CollectionNameSearchComponent implements OnInit {
     this.SendRequest(value, this.next);
   }
 
-  InitialValues(value: string){
+  async InitialValues(value: string){
     this.options = this.getInitialSearchValues(value).pipe(map(item => item.results));
   }
 
@@ -68,7 +102,7 @@ export class CollectionNameSearchComponent implements OnInit {
 
   SendRequest(value: string, page: number) {
     console.log(value);
-    console.log(this.selectedValue);
+    console.log(this.selectedValue, this.myControl.value);
 
     this.loader.displayProgressSpinnerInBlock = true;
     if(page <= 1) 
