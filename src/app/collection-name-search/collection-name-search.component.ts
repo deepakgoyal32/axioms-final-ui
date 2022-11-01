@@ -101,9 +101,6 @@ export class CollectionNameSearchComponent implements OnInit, AfterContentInit {
   }
 
   SendRequest(value: string, page: number) {
-    console.log(value);
-    console.log(this.selectedValue, this.myControl.value);
-
     this.loader.displayProgressSpinnerInBlock = true;
     if(page <= 1) 
       this.records = [];
